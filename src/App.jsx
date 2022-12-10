@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import QRCode from "react-qr-code";
 import ModalGenerate from "./components/ModalGenerate";
+import ModalScanner from "./components/ModalScanner";
 
 function App() {
   const [showModalGenerate, setShowModalGenerate] = React.useState(false);
@@ -24,12 +25,23 @@ function App() {
           </button>
         </div>
         <div className="col-md-4">
-          <button className="button-qrcode">Scanner</button>
+          <button
+            className="button-qrcode"
+            onClick={() => {
+              setShowModalScanner(true);
+            }}
+          >
+            Scanner
+          </button>
         </div>
       </div>
       <ModalGenerate
         show={showModalGenerate}
         onHide={() => setShowModalGenerate(false)}
+      />
+      <ModalScanner
+        show={showModalScanner}
+        onHide={() => setShowModalScanner(false)}
       />
     </div>
   );
