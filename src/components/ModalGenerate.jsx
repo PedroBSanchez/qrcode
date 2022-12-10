@@ -8,6 +8,13 @@ import QRCodeGen from "./QRCodeGen";
 
 const ModalGenerate = (props) => {
   const [qrCodeText, setQRCodeText] = React.useState("");
+  const [qrCodeGen, setQRCodeGen] = React.useState(false);
+
+  const closeModal = () => {
+    setQRCodeGen(false);
+    setQRCodeText("");
+    props?.onHide();
+  };
 
   return (
     <Modal
@@ -33,17 +40,22 @@ const ModalGenerate = (props) => {
           onChange={(e) => setQRCodeText(e?.target?.value)}
         />
         <div className="mt-3">
-          <QRCodeGen />
+          {qrCodeGen && qrCodeText != "" && <QRCodeGen value={qrCodeText} />}
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="btn-danger" onClick={props.onHide}>
+        <Button
+          className="btn-danger"
+          onClick={() => {
+            closeModal();
+          }}
+        >
           Cancel
         </Button>
         <Button
           className="btn-success"
           onClick={() => {
-            console.log("salvesalve");
+            setQRCodeGen(true);
           }}
         >
           Generate

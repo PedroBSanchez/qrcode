@@ -9,6 +9,9 @@ function App() {
 
   return (
     <div className="container-fluid background">
+      <div className="row text-center mt-5">
+        <h1 className="text-title-qrcode">QR Code</h1>
+      </div>
       <div className="row text-center justify-content-center mt-5">
         <div className="col-md-4">
           <button
@@ -17,11 +20,11 @@ function App() {
               setShowModalGenerate(true);
             }}
           >
-            Gerar QRCode
+            Generate
           </button>
         </div>
         <div className="col-md-4">
-          <button className="button-qrcode">Scanner QRCode</button>
+          <button className="button-qrcode">Scanner</button>
         </div>
       </div>
       <ModalGenerate
