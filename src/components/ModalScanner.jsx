@@ -1,12 +1,13 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import QrReader from "react-qr-scanner";
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
 import "./ModalScanner.css";
 
 const ModalScanner = (props) => {
   const [scannerResult, setScannerResult] = React.useState("");
+  const [data, setData] = React.useState("Not Found");
 
   const handleScan = (data) => {
     setScannerResult(data);
@@ -38,17 +39,15 @@ const ModalScanner = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <QrReader
-          delay={100}
-          style={previewStyle}
-          onError={() => {
-            handleError();
-          }}
-          onScan={(data) => {
-            handleScan(data);
+        <BarcodeScannerComponent
+          width={500}
+          height={500}
+          onUpdate={(err, result) => {
+            if (result) setData(result.text);
+            else setData("Not Found");
           }}
         />
-        <p>Result: {scannerResult}</p>
+        <p>{data}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button className="btn-danger" onClick={props.onHide}>
