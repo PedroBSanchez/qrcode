@@ -2,6 +2,9 @@
 
 <img src="https://github.com/PedroBSanchez/qrcode/assets/68929967/e420fc2d-9923-41bf-a1e5-8ebf32715d48" width="300" height="300">
 
+Repos:
+ - https://github.com/PedroBSanchez/qrcode
+
 # About
 
 The QR Code Scanner and Generator project offers a practical solution for scanning and generating QR codes effortlessly. With this application, users can easily scan QR codes using their device's camera, instantly retrieving embedded information. Additionally, users can create QR codes by inputting data such as URLs, text, or contact information. This project simplifies the process of accessing and sharing content through QR codes, making it an ideal tool for tasks ranging from quick information retrieval to efficient content sharing. Whether you're looking to explore encoded content or create QR codes for your own use, this project provides a convenient and user-friendly experience.
